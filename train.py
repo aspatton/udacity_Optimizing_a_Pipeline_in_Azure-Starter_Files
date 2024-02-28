@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 from azureml.core.run import Run
+from azureml.core import Workspace, Dataset
 from azureml.data.dataset_factory import TabularDatasetFactory
 
 def clean_data(data):
@@ -55,14 +56,17 @@ def main():
     # Data is located at:
     # "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
-    ds = ### YOUR CODE HERE ###
-    
+    # URL to the CSV file
+    csv_url = 'https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv'    
+    # Create a TabularDataset using TabularDatasetFactory
+    ds = TabularDatasetFactory.from_delimited_files(path=csv_url)
+
     x, y = clean_data(ds)
 
     # TODO: Split data into train and test sets.
 
-    ### YOUR CODE HERE ###a
-
+    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.3, random_state=123)
+    
     model = LogisticRegression(C=args.C, max_iter=args.max_iter).fit(x_train, y_train)
 
     accuracy = model.score(x_test, y_test)
