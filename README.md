@@ -8,12 +8,14 @@ In this project, we build and optimize an Azure ML pipeline using Python and Azu
 
 The code compares models using Skikit-Learn compared to Azure AutoML run.
 
+This is the first project in the course.
+
 
 ## Summary
 
-**In 1-2 sentences, explain the problem statement: e.g "This dataset contains data about... we seek to predict..."**
+The data contains bank marketing data.
 
-**In 1-2 sentences, explain the solution: e.g. "The best performing model was a ..."**
+The best model is ....
 
 ## Scikit-learn Pipeline
 
