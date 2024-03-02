@@ -10,6 +10,7 @@ The code compares models using Skikit-Learn compared to Azure AutoML run.
 
 This is the first project in the course.
 
+Azure Machine Learning allows for hyperparameter training through Hyperdrive experiments. This process launches multiple child runs, each with a different hyperparameter configuration. After all, runs are complete; the best model can be evaluated and registered to the Azure Machine Learning Studio. This project uses this approach to find the best model to use with provided dataset.
 
 ## Summary
 
