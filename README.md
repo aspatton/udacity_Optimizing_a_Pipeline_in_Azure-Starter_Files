@@ -1,12 +1,16 @@
 # Optimizing an ML Pipeline in Microsoft Azure - Udemy course
+# Tony Patton - 03/01/2024
 # Project 1
 
+#### Utilized personal subscription since Udacity lab enviornments never accessible - basically spin and never start ####
+
 ## Overview
+
 This project is part of the Udacity Machine Learning Engineer in Microsoft Azure course.
 
 In this project, we build and optimize an Azure ML pipeline using Python and AzureML SDK.
 
-The code compares models using Skikit-Learn compared to Azure AutoML run.
+The code compares models using Skikit-Learn and Azure AutoML.
 
 This is the first project in the course.
 
@@ -58,16 +62,16 @@ Accuracy - 0.91706 [AutoML_2e4bada9-b5a6-437e-a9a0-516e6a526204_21]
 
 Parameters of the Best Model:
 1. voting: 'soft'
-The ensemble model utilized Soft Voting which means the weighted average of probabilities for class membership was predicted by the individual models and then used to predict the class with the highest average probability.
+The ensemble model utilized Soft Voting which means the weighted average of probabilities for class membership is predicted by the individual models. The results are used to predict the class with the highest average probability.
 
-2. weights: [0.35714285714285715, 0.07142857142857142, 0.07142857142857142, 0.14285714285714285, 0.07142857142857142, 0.07142857142857142, 0.07142857142857142, 0.07142857142857142, 0.07142857142857142]
-This represents the weights assigned to the constituent models in the ensemble. A higher weight indicates that the associated model’s vote has more influence on the final prediction. In this instance, the first model in the ensemble has the most influence on the final output.
+2. weights:
+The weights assigned to the models in the ensemble. A higher weight means the model has more influence on the final prediction. 
 
 3. n_jobs: None
-This parameter is typically used to specify the number of jobs to run in parallel for fit, predict, etc. None usually means 1, i.e., the computations will not run in parallel.
+This parameter is used to specify the number of jobs to run in parallel. None usually means 1, i.e., the computations will not run in parallel.
 
 4. flatten_transform: None
-This parameter is usually related to whether the transformation should be flattened or not. None in this case possibly implies that the default behavior is used, and no flattening transformation is applied.
+This parameter signals whether the transformation is flattened. In this case, None says to use the default behavior thus no flattening.
 
 ## Pipeline comparison
 
@@ -79,7 +83,7 @@ The big advantage of AutoML is the ease it provides for evaluating many differen
 
 Progress can be achieved by refining the Voting Ensemble algorithm from AutoML using Hyperdrive for hyperparameter tuning. Hyperdrive can explore varied parameter sampling methods, possibly unveiling a hyperparameter set that surpasses the accuracy attained by AutoML.
 
-Given the bank's focus on accurately pinpointing willing subscribers and avoiding resource wastage on unwilling clients, a model's precision takes precedence over its recall. Hence, applying a beta of 0.5 will accentuate precision, necessitating the utilization of the F-beta score for evaluating both the Hyperdrive and AutoML models.
+The bank in this example seems to focus on accurately locating subscribers wanting to sign up thus they avoid wasting resources. The model's precision is most important.
 
 ## Proof of cluster clean up
 
